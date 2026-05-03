@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DemocraSense — Your Indian Voting Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <svg class="india-flag" width="28" height="20" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:7px;border-radius:2px;box-shadow:0 1px 4px rgba(0,0,0,0.3)">
+        <rect width="28" height="20" fill="white"/>
+        <rect width="28" height="6.67" fill="#FF9933"/>
+        <rect y="13.33" width="28" height="6.67" fill="#138808"/>
+        <circle cx="14" cy="10" r="2.5" fill="none" stroke="#000080" stroke-width="0.5"/>
+        <circle cx="14" cy="10" r="0.4" fill="#000080"/>
+        <g stroke="#000080" stroke-width="0.3">
+          <line x1="14" y1="7.5" x2="14" y2="12.5"/>
+          <line x1="11.5" y1="10" x2="16.5" y2="10"/>
+          <line x1="11.77" y1="8.27" x2="16.23" y2="11.73"/>
+          <line x1="16.23" y1="8.27" x2="11.77" y2="11.73"/>
+          <line x1="11.1" y1="9.12" x2="16.9" y2="10.88"/>
+          <line x1="16.9" y1="9.12" x2="11.1" y2="10.88"/>
+        </g>
+      </svg>
+      DemocraSense
+    </div>
+    <ul class="nav-links">
+      <li><a href="#what">What is Voting</a></li>
+      <li><a href="#eligible">Am I Eligible?</a></li>
+      <li><a href="#process">The Process</a></li>
+      <li><a href="#how-to-vote">How to Vote</a></li>
+      <li><a href="#choose">Choose Wisely</a></li>
+      <li><a href="#rules">Rules</a></li>
+      <li><a href="#assistant">Ask AI</a></li>
+    </ul>
+    <button class="nav-cta" onclick="scrollTo('#eligible')">Check Eligibility</button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Your Democratic Compass</div>
+      <h1>Your Voice.<br><span class="accent">Your Vote.</span><br>Your Power.</h1>
+      <p class="hero-sub">Everything you need to understand elections — from basics to ballot day — in one place.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('eligible').scrollIntoView({behavior:'smooth'})">Check My Eligibility</button>
+        <button class="btn-outline" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})">How It Works ↓</button>
+      </div>
+    </div>
+    <div class="hero-graphic">
+      <div class="ballot-card">
+        <div class="ballot-header">OFFICIAL BALLOT</div>
+        <div class="ballot-line"></div>
+        <div class="ballot-option selected">✓ Candidate A</div>
+        <div class="ballot-option">○ Candidate B</div>
+        <div class="ballot-option">○ Candidate C</div>
+        <div class="ballot-footer">YOUR CHOICE COUNTS</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── STATS BAR ── -->
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-num">18</span><span class="stat-label">Minimum Age (India)</span></div>
+    <div class="stat"><span class="stat-num">969M+</span><span class="stat-label">Registered Indian Voters</span></div>
+    <div class="stat"><span class="stat-num">28</span><span class="stat-label">States + 8 UTs</span></div>
+    <div class="stat"><span class="stat-num">1</span><span class="stat-label">Vote Can Change History</span></div>
+  </div>
+
+  <!-- ── WHAT IS VOTING ── -->
+  <section id="what" class="section">
+    <div class="section-tag">01 — Foundation</div>
+    <h2 class="section-title">What is Voting?</h2>
+    <div class="two-col">
+      <div class="text-block">
+        <p>Voting is the act of expressing your preference or choice in an election. It is the cornerstone of democracy — the system where <strong>the people hold the power</strong> to decide who governs them and what policies shape their lives.</p>
+        <p>When you vote, you are participating in a collective decision-making process enshrined in the Constitution of India. Your vote is your voice in government — it is <em>constitutionally protected and legally guaranteed</em> under Article 326.</p>
+        <p>Elections happen at local, state, and national levels — from your Gram Panchayat to the Lok Sabha. Each election shapes laws, budgets, schools, healthcare, and your daily life.</p>
+      </div>
+      <div class="card-grid-2">
+        <div class="icon-card">
+          <div class="icon-card-icon">🏛</div>
+          <h4>Lok Sabha Elections</h4>
+          <p>Lower house of Parliament — 543 constituencies elect Members of Parliament (MPs)</p>
+        </div>
+        <div class="icon-card">
+          <div class="icon-card-icon">🏙</div>
+          <h4>State Vidhan Sabha</h4>
+          <p>State legislative assemblies — elect MLAs who form state governments</p>
+        </div>
+        <div class="icon-card">
+          <div class="icon-card-icon">🏘</div>
+          <h4>Panchayat & Municipal</h4>
+          <p>Local body elections — Gram Panchayat, Municipal Corporations, Ward Councillors</p>
+        </div>
+        <div class="icon-card">
+          <div class="icon-card-icon">📋</div>
+          <h4>Rajya Sabha</h4>
+          <p>Upper house members elected by State Legislative Assemblies, not directly by voters</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ELIGIBILITY CHECKER ── -->
+  <section id="eligible" class="section section-dark">
+    <div class="section-tag">02 — Eligibility</div>
+    <h2 class="section-title">Am I Eligible to Vote?</h2>
+    <p class="section-sub">Enter your date of birth to find out if you meet the minimum age requirement.</p>
+
+    <div class="eligibility-tool">
+      <div class="eligibility-form">
+        <h3>Eligibility Checker</h3>
+        <p class="form-note">Based on Indian voting age (18+) as per Article 326 of the Constitution.</p>
+        <div class="dob-inputs">
+          <div class="dob-group">
+            <label>Month</label>
+            <select id="dob-month">
+              <option value="">-- Month --</option>
+              <option value="1">January</option><option value="2">February</option>
+              <option value="3">March</option><option value="4">April</option>
+              <option value="5">May</option><option value="6">June</option>
+              <option value="7">July</option><option value="8">August</option>
+              <option value="9">September</option><option value="10">October</option>
+              <option value="11">November</option><option value="12">December</option>
+            </select>
+          </div>
+          <div class="dob-group">
+            <label>Day</label>
+            <input type="number" id="dob-day" min="1" max="31" placeholder="DD">
+          </div>
+          <div class="dob-group">
+            <label>Year</label>
+            <input type="number" id="dob-year" min="1900" max="2025" placeholder="YYYY">
+          </div>
+        </div>
+        <button class="btn-primary full-width" onclick="checkEligibility()">Check My Eligibility →</button>
+        <div id="eligibility-result" class="eligibility-result hidden"></div>
+      </div>
+      <div class="eligibility-requirements">
+        <h3>Indian Voter Requirements</h3>
+        <ul class="req-list">
+          <li class="req-item">
+            <span class="req-icon req-req">✓</span>
+            <div><strong>Age 18+</strong> — Must be at least 18 years old on the qualifying date (Jan 1 of election year)</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-req">✓</span>
+            <div><strong>Indian Citizen</strong> — Must be a citizen of India (by birth or naturalisation)</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-req">✓</span>
+            <div><strong>Ordinary Resident</strong> — Must be an ordinary resident of the constituency where you register</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-req">✓</span>
+            <div><strong>On Electoral Roll</strong> — Must be enrolled on the electoral roll (voter list) of your constituency</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-no">✗</span>
+            <div><strong>Not of Unsound Mind</strong> as declared by a competent court</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-no">✗</span>
+            <div><strong>Not Disqualified</strong> under any law relating to corrupt practices or election offences</div>
+          </li>
+        </ul>
+        <div class="note-box">
+          <strong>📌 Note:</strong> The Election Commission of India manages all elections. You can register or check your voter status on the <strong>voters.eci.gov.in</strong> portal using your Aadhaar or other ID proof.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ELECTION PROCESS TIMELINE ── -->
+  <section id="process" class="section">
+    <div class="section-tag">03 — The Process</div>
+    <h2 class="section-title">How Elections Work</h2>
+    <p class="section-sub">A step-by-step visual guide to the entire election cycle.</p>
+    <div class="timeline">
+      <div class="timeline-item" data-step="1">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-content">
+          <h4>Election Commission Announces Schedule</h4>
+          <p>The Election Commission of India (ECI) announces the election schedule — including polling dates, nomination deadlines, and the Model Code of Conduct (MCC) comes into force immediately.</p>
+          <div class="timeline-tag">~4–8 weeks before Polling Day</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="2">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-content">
+          <h4>Nominations Filed</h4>
+          <p>Candidates file nomination papers with the Returning Officer. Independent and party candidates submit their affidavits disclosing assets, liabilities, and criminal records.</p>
+          <div class="timeline-tag">Nomination period</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="3">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-content">
+          <h4>Scrutiny & Withdrawal</h4>
+          <p>Nomination papers are scrutinized. Candidates may withdraw within a set period. The final list of candidates is published and symbol allotment takes place.</p>
+          <div class="timeline-tag">After nomination deadline</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="4">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-content">
+          <h4>Voter Roll Verification</h4>
+          <p>Ensure your name is on the electoral roll at <strong>voters.eci.gov.in</strong>. Voter ID (EPIC card) is the primary ID at polling booths. New registrations must be completed before rolls are finalized.</p>
+          <div class="timeline-tag">Before rolls are finalized</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="5">
+        <div class="timeline-dot">5</div>
+        <div class="timeline-content">
+          <h4>Campaign Period</h4>
+          <p>Parties and candidates campaign within ECI guidelines. All campaign spending is monitored. Campaigning must stop 48 hours before polling (silence period).</p>
+          <div class="timeline-tag">Until 48 hrs before polling</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="6">
+        <div class="timeline-dot">6</div>
+        <div class="timeline-content">
+          <h4>🗳 Polling Day!</h4>
+          <p>India uses Electronic Voting Machines (EVMs). Voters queue at their assigned booth, verify identity, press the button next to their chosen candidate, and receive an ink mark on their finger as proof.</p>
+          <div class="timeline-tag">Announced date(s) by ECI</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="7">
+        <div class="timeline-dot">7</div>
+        <div class="timeline-content">
+          <h4>Vote Counting & Results</h4>
+          <p>EVM data is counted on a separate date under strict security. Results are declared constituency-by-constituency. VVPAT slips provide a paper audit trail for verification.</p>
+          <div class="timeline-tag">Counting day (announced by ECI)</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="8">
+        <div class="timeline-dot">8</div>
+        <div class="timeline-content">
+          <h4>Government Formation</h4>
+          <p>The winning party or coalition stakes claim to form the government. The President (national) or Governor (state) invites the leader to be sworn in as Prime Minister or Chief Minister.</p>
+          <div class="timeline-tag">After results & coalition talks</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW TO VOTE ── -->
+  <section id="how-to-vote" class="section section-accent">
+    <div class="section-tag">04 — How to Vote</div>
+    <h2 class="section-title">Step-by-Step: Casting Your Vote</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">Step 1</div>
+        <div class="step-icon">📝</div>
+        <h4>Register on Electoral Roll</h4>
+        <p>Visit <strong>voters.eci.gov.in</strong> or your nearest BLO (Booth Level Officer). Fill Form 6 for new registration. You'll receive your EPIC (Voter ID) card.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 2</div>
+        <div class="step-icon">🗺</div>
+        <h4>Find Your Polling Booth</h4>
+        <p>Use the Voter Helpline App or <strong>voters.eci.gov.in</strong> to find your assigned booth. Your booth number is also printed on your Voter ID slip.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 3</div>
+        <div class="step-icon">🪪</div>
+        <h4>Bring Valid ID</h4>
+        <p>EPIC (Voter ID) is primary. Alternatives accepted: Aadhaar, Passport, Driving Licence, PAN Card, MNREGA Job Card, or passbook with photo.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 4</div>
+        <div class="step-icon">📋</div>
+        <h4>Check Voter Slip</h4>
+        <p>Polling agents distribute voter slips before election day with your serial number. This speeds up your turn at the booth — carry it along with your ID.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 5</div>
+        <div class="step-icon">🗳</div>
+        <h4>Go to the Polling Booth</h4>
+        <p>Arrive during voting hours (typically 7 AM – 6 PM). Join the queue. Presiding Officers manage orderly voting. If in line before closing, you have the right to vote.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 6</div>
+        <div class="step-icon">☑️</div>
+        <h4>Press the EVM Button</h4>
+        <p>After identity verification, press the blue button on the EVM next to your candidate's name and symbol. The VVPAT machine will briefly show your choice. Your left index finger gets inked.</p>
+      </div>
+    </div>
+
+    <div class="vote-types">
+      <h3>Ways to Vote</h3>
+      <div class="vote-type-grid">
+        <div class="vote-type-card">
+          <h4>🏫 EVM Voting (Polling Day)</h4>
+          <p>Visit your assigned booth on polling day and vote using the Electronic Voting Machine — the standard method across India.</p>
+        </div>
+        <div class="vote-type-card">
+          <h4>📬 Postal Ballot</h4>
+          <p>Available to service voters (armed forces, police on duty), senior citizens (80+), persons with disabilities, and COVID-affected voters.</p>
+        </div>
+        <div class="vote-type-card">
+          <h4>🏠 Home Voting (PwD/Senior)</h4>
+          <p>ECI introduced facility-based voting for persons with disabilities (40%+ disability) and voters aged 85+ to vote from home with a mobile team.</p>
+        </div>
+        <div class="vote-type-card">
+          <h4>🌐 NRI Voting</h4>
+          <p>Non-Resident Indians registered on electoral rolls can vote in person at their constituency. Online/proxy voting is not yet widely available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW TO CHOOSE ── -->
+  <section id="choose" class="section">
+    <div class="section-tag">05 — Choosing Candidates</div>
+    <h2 class="section-title">How to Decide Who to Vote For</h2>
+    <p class="section-sub">Evaluating candidates wisely is a skill. Here's a framework to help you make an informed choice.</p>
+    <div class="choose-framework">
+      <div class="framework-card">
+        <div class="fw-icon">🔍</div>
+        <h4>Research Their Record</h4>
+        <p>Look at what they've actually <em>done</em>, not just what they say. Past votes, past statements, and past actions are more reliable than campaign promises.</p>
+        <ul>
+          <li>Check voting records on PRS Legislative Research (prsindia.org)</li>
+          <li>Read their affidavit on affidavit.eci.gov.in</li>
+          <li>Look at endorsements and campaign donors (ADR India)</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">📰</div>
+        <h4>Use Multiple News Sources</h4>
+        <p>Read from diverse, reputable sources. Cross-check claims. No single outlet has the full picture.</p>
+        <ul>
+          <li>Check fact-checkers: Alt News, Factly, Boom Live</li>
+          <li>Read across the political spectrum</li>
+          <li>Distinguish news from opinion/editorial</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">⚖️</div>
+        <h4>Compare on Issues That Matter to You</h4>
+        <p>What issues affect your life? Education, healthcare, housing, economy? Find out where each candidate stands.</p>
+        <ul>
+          <li>Use MyNeta.info to compare candidate backgrounds</li>
+          <li>Watch debates with an open mind</li>
+          <li>Consider both short and long-term impacts</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">🚩</div>
+        <h4>Watch for Red Flags</h4>
+        <p>Certain behaviors signal a candidate may not be trustworthy or effective in office.</p>
+        <ul>
+          <li>Vague or contradictory promises</li>
+          <li>Appeals to fear without solutions</li>
+          <li>Refusal to engage with evidence</li>
+          <li>History of corruption or ethical violations</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">🤝</div>
+        <h4>Consider Their Character</h4>
+        <p>Leadership qualities matter. Look for honesty, accountability, and respect for democratic institutions and the rule of law.</p>
+        <ul>
+          <li>Do they accept responsibility for mistakes?</li>
+          <li>Do they respect the opposition?</li>
+          <li>Do they uphold constitutional norms?</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">🧠</div>
+        <h4>Think Independently</h4>
+        <p>Your vote is private and personal. Don't let peer pressure or social media dictate your choice. Make an informed, independent decision.</p>
+        <ul>
+          <li>Verify before you share</li>
+          <li>Be skeptical of viral claims</li>
+          <li>Your values are your own</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RULES & REGULATIONS ── -->
+  <section id="rules" class="section section-dark">
+    <div class="section-tag">06 — Rules & Regulations</div>
+    <h2 class="section-title">Voting Rules You Must Know</h2>
+    <div class="rules-grid">
+      <div class="rule-block">
+        <h4>🔒 Your Rights at the Booth</h4>
+        <ul>
+          <li>You have the right to vote free from intimidation or undue influence</li>
+          <li>You can request assistance if you are a person with disability</li>
+          <li>If in queue when polls close, you may still vote</li>
+          <li>You have the right to secrecy of your vote (Representation of People Act)</li>
+          <li>You have the right to NOTA (None of the Above) as an option</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>🚫 What's NOT Allowed</h4>
+        <ul>
+          <li>Voting more than once (personation) — criminal offence</li>
+          <li>Bribing voters with cash, gifts, or liquor (Model Code of Conduct)</li>
+          <li>Campaigning within 100 metres of a polling booth on polling day</li>
+          <li>Carrying weapons near polling stations</li>
+          <li>Using government vehicles for campaigning during MCC period</li>
+          <li>Fake news/deepfakes to influence voters</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>📅 Key Deadlines</h4>
+        <ul>
+          <li>New voter registration (Form 6): Before electoral roll is finalised</li>
+          <li>Address change (Form 8A): Before roll revision deadline</li>
+          <li>Name correction (Form 8): Anytime via BLO or online</li>
+          <li>Qualifying date for age 18: January 1 of the reference year</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>🆔 ID Documents Accepted</h4>
+        <ul>
+          <li><strong>Primary:</strong> EPIC (Voter ID card)</li>
+          <li><strong>Alternatives:</strong> Aadhaar, Passport, Driving Licence</li>
+          <li><strong>Also accepted:</strong> PAN Card, MNREGA Job Card, Bank passbook with photo</li>
+          <li>Check your booth slip from the ECI before polling day</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>⚖️ Election Commission Powers</h4>
+        <ul>
+          <li>ECI is an independent constitutional body (Article 324)</li>
+          <li>Can repoll at any booth if malpractice is detected</li>
+          <li>Can remove officials obstructing elections</li>
+          <li>Model Code of Conduct binding on all parties and candidates</li>
+          <li>EVMs and VVPATs used nationwide for tamper-proof voting</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>📣 Reporting Problems</h4>
+        <ul>
+          <li>Call ECI Voter Helpline: <strong>1950</strong></li>
+          <li>Use the cVIGIL app to report MCC violations with photo/video</li>
+          <li>Contact your Returning Officer or Presiding Officer</li>
+          <li>File a complaint at <strong>eci.gov.in</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AI ASSISTANT ── -->
+  <section id="assistant" class="section section-assistant">
+    <div class="section-tag">07 — Ask AI</div>
+    <h2 class="section-title">Ask DemocraSense AI</h2>
+    <p class="section-sub">Have a question about voting, elections, or the democratic process in India? Ask our AI assistant powered by Claude.</p>
+    <div class="chat-container">
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-msg ai-msg">
+          <div class="msg-avatar">🗳</div>
+          <div class="msg-bubble">
+            Jai Hind! I'm DemocraSense AI. I'm here to help you understand Indian elections, the voting process, ECI rules, and how democracy works in India. What would you like to know?
+            <div class="quick-questions">
+              <button onclick="askQuestion('How do I register to vote in India?')">How do I register?</button>
+              <button onclick="askQuestion('What is the Model Code of Conduct?')">Model Code of Conduct?</button>
+              <button onclick="askQuestion('How does an EVM work?')">How do EVMs work?</button>
+              <button onclick="askQuestion('What is NOTA?')">What is NOTA?</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Ask anything about voting or elections..." onkeydown="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()" id="send-btn">
+          <span id="send-icon">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">🗳 DemocraSense</div>
+        <p>Empowering citizens with knowledge to participate fully in democracy.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="https://voters.eci.gov.in" target="_blank">voters.eci.gov.in</a>
+        <a href="https://eci.gov.in" target="_blank">Election Commission of India</a>
+        <a href="https://affidavit.eci.gov.in" target="_blank">Candidate Affidavits</a>
+        <a href="https://myneta.info" target="_blank">MyNeta.info</a>
+        <a href="https://prsindia.org" target="_blank">PRS Legislative Research</a>
+      </div>
+      <div class="footer-links">
+        <h5>Resources</h5>
+        <a href="https://altnews.in" target="_blank">Alt News (Fact-Check)</a>
+        <a href="https://factly.in" target="_blank">Factly India</a>
+        <a href="https://adrindia.org" target="_blank">ADR India</a>
+        <a href="https://legislative.gov.in" target="_blank">India Code (Laws)</a>
+      </div>
+      <div class="footer-disclaimer">
+        <h5>Disclaimer</h5>
+        <p>DemocraSense is a nonpartisan educational resource. We do not endorse any political party, candidate, or ideology. Our goal is to inform all citizens equally.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DemocraSense — Built for Informed Citizens of India</p>
+      <p>🇮🇳 Lok Shakti — Democracy thrives when every voice is heard.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
