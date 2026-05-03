@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DemocraSense — Your Voting Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-logo">🗳 DemocraSense</div>
+    <ul class="nav-links">
+      <li><a href="#what">What is Voting</a></li>
+      <li><a href="#eligible">Am I Eligible?</a></li>
+      <li><a href="#process">The Process</a></li>
+      <li><a href="#how-to-vote">How to Vote</a></li>
+      <li><a href="#choose">Choose Wisely</a></li>
+      <li><a href="#rules">Rules</a></li>
+      <li><a href="#assistant">Ask AI</a></li>
+    </ul>
+    <button class="nav-cta" onclick="scrollTo('#eligible')">Check Eligibility</button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Your Democratic Compass</div>
+      <h1>Your Voice.<br><span class="accent">Your Vote.</span><br>Your Power.</h1>
+      <p class="hero-sub">Everything you need to understand elections — from basics to ballot day — in one place.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('eligible').scrollIntoView({behavior:'smooth'})">Check My Eligibility</button>
+        <button class="btn-outline" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})">How It Works ↓</button>
+      </div>
+    </div>
+    <div class="hero-graphic">
+      <div class="ballot-card">
+        <div class="ballot-header">OFFICIAL BALLOT</div>
+        <div class="ballot-line"></div>
+        <div class="ballot-option selected">✓ Candidate A</div>
+        <div class="ballot-option">○ Candidate B</div>
+        <div class="ballot-option">○ Candidate C</div>
+        <div class="ballot-footer">YOUR CHOICE COUNTS</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── STATS BAR ── -->
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-num">18</span><span class="stat-label">Minimum Age (US)</span></div>
+    <div class="stat"><span class="stat-num">235M+</span><span class="stat-label">Registered US Voters</span></div>
+    <div class="stat"><span class="stat-num">50</span><span class="stat-label">States Hold Elections</span></div>
+    <div class="stat"><span class="stat-num">1</span><span class="stat-label">Vote Can Change History</span></div>
+  </div>
+
+  <!-- ── WHAT IS VOTING ── -->
+  <section id="what" class="section">
+    <div class="section-tag">01 — Foundation</div>
+    <h2 class="section-title">What is Voting?</h2>
+    <div class="two-col">
+      <div class="text-block">
+        <p>Voting is the act of expressing your preference or choice in an election. It is the cornerstone of democracy — the system where <strong>the people hold the power</strong> to decide who governs them and what policies shape their lives.</p>
+        <p>When you vote, you are participating in a collective decision-making process that has been fought for by generations. Your vote is your voice in government — it is <em>constitutionally protected and legally guaranteed</em>.</p>
+        <p>Elections happen at local, state, and federal levels — from your city mayor to the President. Each election shapes laws, budgets, schools, healthcare, and your daily life.</p>
+      </div>
+      <div class="card-grid-2">
+        <div class="icon-card">
+          <div class="icon-card-icon">🏛</div>
+          <h4>Federal Elections</h4>
+          <p>President, Vice President, Senators, House Representatives</p>
+        </div>
+        <div class="icon-card">
+          <div class="icon-card-icon">🏙</div>
+          <h4>State Elections</h4>
+          <p>Governor, State legislators, Attorney General</p>
+        </div>
+        <div class="icon-card">
+          <div class="icon-card-icon">🏘</div>
+          <h4>Local Elections</h4>
+          <p>Mayor, City Council, School Board, Judges</p>
+        </div>
+        <div class="icon-card">
+          <div class="icon-card-icon">📋</div>
+          <h4>Ballot Measures</h4>
+          <p>Direct votes on laws, taxes, constitutional amendments</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ELIGIBILITY CHECKER ── -->
+  <section id="eligible" class="section section-dark">
+    <div class="section-tag">02 — Eligibility</div>
+    <h2 class="section-title">Am I Eligible to Vote?</h2>
+    <p class="section-sub">Enter your date of birth to find out if you meet the minimum age requirement.</p>
+
+    <div class="eligibility-tool">
+      <div class="eligibility-form">
+        <h3>Eligibility Checker</h3>
+        <p class="form-note">Based on US federal voting age (18+). State laws may vary for primaries.</p>
+        <div class="dob-inputs">
+          <div class="dob-group">
+            <label>Month</label>
+            <select id="dob-month">
+              <option value="">-- Month --</option>
+              <option value="1">January</option><option value="2">February</option>
+              <option value="3">March</option><option value="4">April</option>
+              <option value="5">May</option><option value="6">June</option>
+              <option value="7">July</option><option value="8">August</option>
+              <option value="9">September</option><option value="10">October</option>
+              <option value="11">November</option><option value="12">December</option>
+            </select>
+          </div>
+          <div class="dob-group">
+            <label>Day</label>
+            <input type="number" id="dob-day" min="1" max="31" placeholder="DD">
+          </div>
+          <div class="dob-group">
+            <label>Year</label>
+            <input type="number" id="dob-year" min="1900" max="2025" placeholder="YYYY">
+          </div>
+        </div>
+        <button class="btn-primary full-width" onclick="checkEligibility()">Check My Eligibility →</button>
+        <div id="eligibility-result" class="eligibility-result hidden"></div>
+      </div>
+      <div class="eligibility-requirements">
+        <h3>US Voting Requirements</h3>
+        <ul class="req-list">
+          <li class="req-item">
+            <span class="req-icon req-req">✓</span>
+            <div><strong>Age 18+</strong> — Must be at least 18 years old on or before Election Day</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-req">✓</span>
+            <div><strong>US Citizen</strong> — Must be a United States citizen (naturalized or birth)</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-req">✓</span>
+            <div><strong>State Resident</strong> — Must be a resident of the state where you register</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-req">✓</span>
+            <div><strong>Registered</strong> — Must be registered to vote (deadlines vary by state)</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-no">✗</span>
+            <div><strong>Not Currently Incarcerated</strong> for a felony (varies by state)</div>
+          </li>
+          <li class="req-item">
+            <span class="req-icon req-no">✗</span>
+            <div><strong>Not Declared Mentally Incapacitated</strong> by a court</div>
+          </li>
+        </ul>
+        <div class="note-box">
+          <strong>📌 Note:</strong> Some states allow 17-year-olds to vote in primaries if they will be 18 by the general election. Check your state's specific rules.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ELECTION PROCESS TIMELINE ── -->
+  <section id="process" class="section">
+    <div class="section-tag">03 — The Process</div>
+    <h2 class="section-title">How Elections Work</h2>
+    <p class="section-sub">A step-by-step visual guide to the entire election cycle.</p>
+    <div class="timeline">
+      <div class="timeline-item" data-step="1">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-content">
+          <h4>Candidates Announce</h4>
+          <p>Politicians declare their intention to run. They form campaign committees and begin raising funds. Primary challengers within a party also emerge at this stage.</p>
+          <div class="timeline-tag">~12–18 months before Election Day</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="2">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-content">
+          <h4>Primary Elections</h4>
+          <p>Each party holds primary elections where registered voters choose their party's candidate. There are "open" and "closed" primaries depending on the state.</p>
+          <div class="timeline-tag">Spring/Summer of election year</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="3">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-content">
+          <h4>Party Conventions & Debates</h4>
+          <p>Parties officially nominate their candidates. Public debates give voters a chance to compare candidates on key issues directly.</p>
+          <div class="timeline-tag">Summer of election year</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="4">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-content">
+          <h4>Voter Registration Deadline</h4>
+          <p>Most states require you to register by a set deadline (15–30 days before the election). Some states offer same-day registration. <strong>Check your state's deadline!</strong></p>
+          <div class="timeline-tag">15–30 days before Election Day</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="5">
+        <div class="timeline-dot">5</div>
+        <div class="timeline-content">
+          <h4>Early Voting & Mail-In Ballots</h4>
+          <p>Most states offer early in-person voting (1–4 weeks before Election Day) and mail-in/absentee ballots. This makes voting more accessible.</p>
+          <div class="timeline-tag">~2–4 weeks before Election Day</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="6">
+        <div class="timeline-dot">6</div>
+        <div class="timeline-content">
+          <h4>🗳 Election Day!</h4>
+          <p>Federal elections are held on the first Tuesday after the first Monday in November. Polls are typically open 6 AM – 8 PM. If you're in line before closing, you have the right to vote!</p>
+          <div class="timeline-tag">First Tuesday of November</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="7">
+        <div class="timeline-dot">7</div>
+        <div class="timeline-content">
+          <h4>Vote Counting & Certification</h4>
+          <p>Ballots are counted by election officials. Results are certified by state authorities. For presidential elections, the Electoral College formally votes in December.</p>
+          <div class="timeline-tag">Days to weeks after Election Day</div>
+        </div>
+      </div>
+      <div class="timeline-item" data-step="8">
+        <div class="timeline-dot">8</div>
+        <div class="timeline-content">
+          <h4>Inauguration / Taking Office</h4>
+          <p>The winner is sworn into office. For the President, Inauguration Day is January 20. Local and state officials may have different start dates.</p>
+          <div class="timeline-tag">January 20 (Presidential)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW TO VOTE ── -->
+  <section id="how-to-vote" class="section section-accent">
+    <div class="section-tag">04 — How to Vote</div>
+    <h2 class="section-title">Step-by-Step: Casting Your Vote</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">Step 1</div>
+        <div class="step-icon">📝</div>
+        <h4>Register to Vote</h4>
+        <p>Go to <strong>vote.gov</strong> or your state's election website. You'll need your ID or SSN. Register well before the deadline.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 2</div>
+        <div class="step-icon">🗺</div>
+        <h4>Find Your Polling Place</h4>
+        <p>Use the address on your registration. You can look it up on your state's election site or at <strong>vote.gov/polling-place-locator</strong>.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 3</div>
+        <div class="step-icon">🪪</div>
+        <h4>Bring Valid ID</h4>
+        <p>Many states require photo ID. Accepted forms: driver's license, passport, state ID, student ID (varies by state). Check your state's requirements.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 4</div>
+        <div class="step-icon">✉️</div>
+        <h4>Request Mail-In Ballot (Optional)</h4>
+        <p>If voting by mail, request your ballot early. Fill it out carefully, sign the envelope, and return it by the deadline — mail it early!</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 5</div>
+        <div class="step-icon">🗳</div>
+        <h4>Go to the Polls</h4>
+        <p>Arrive during voting hours (typically 6 AM – 8 PM). If you're in line when polls close, <strong>you have the right to stay and vote.</strong></p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">Step 6</div>
+        <div class="step-icon">☑️</div>
+        <h4>Mark Your Ballot</h4>
+        <p>Follow instructions on the ballot carefully. You can leave races blank if you choose. Review your selections before submitting.</p>
+      </div>
+    </div>
+
+    <div class="vote-types">
+      <h3>Ways to Vote</h3>
+      <div class="vote-type-grid">
+        <div class="vote-type-card">
+          <h4>🏫 In-Person (Election Day)</h4>
+          <p>Visit your assigned polling place on Election Day. The most traditional method.</p>
+        </div>
+        <div class="vote-type-card">
+          <h4>⏰ Early Voting</h4>
+          <p>Cast your ballot in person at designated locations days or weeks before Election Day.</p>
+        </div>
+        <div class="vote-type-card">
+          <h4>📬 Mail-In / Absentee</h4>
+          <p>Request a ballot by mail, fill it out at home, and return it by mail or drop box.</p>
+        </div>
+        <div class="vote-type-card">
+          <h4>💻 Online (Limited)</h4>
+          <p>A few states offer online ballot return for military and overseas voters. Not widely available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW TO CHOOSE ── -->
+  <section id="choose" class="section">
+    <div class="section-tag">05 — Choosing Candidates</div>
+    <h2 class="section-title">How to Decide Who to Vote For</h2>
+    <p class="section-sub">Evaluating candidates wisely is a skill. Here's a framework to help you make an informed choice.</p>
+    <div class="choose-framework">
+      <div class="framework-card">
+        <div class="fw-icon">🔍</div>
+        <h4>Research Their Record</h4>
+        <p>Look at what they've actually <em>done</em>, not just what they say. Past votes, past statements, and past actions are more reliable than campaign promises.</p>
+        <ul>
+          <li>Check voting records on congress.gov</li>
+          <li>Read their official website's policy positions</li>
+          <li>Look at endorsements and donors</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">📰</div>
+        <h4>Use Multiple News Sources</h4>
+        <p>Read from diverse, reputable sources. Cross-check claims. No single outlet has the full picture.</p>
+        <ul>
+          <li>Check fact-checkers: PolitiFact, FactCheck.org</li>
+          <li>Read across the political spectrum</li>
+          <li>Distinguish news from opinion/editorial</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">⚖️</div>
+        <h4>Compare on Issues That Matter to You</h4>
+        <p>What issues affect your life? Education, healthcare, housing, economy? Find out where each candidate stands.</p>
+        <ul>
+          <li>Use ISideWith.com to match your views</li>
+          <li>Watch debates with an open mind</li>
+          <li>Consider both short and long-term impacts</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">🚩</div>
+        <h4>Watch for Red Flags</h4>
+        <p>Certain behaviors signal a candidate may not be trustworthy or effective in office.</p>
+        <ul>
+          <li>Vague or contradictory promises</li>
+          <li>Appeals to fear without solutions</li>
+          <li>Refusal to engage with evidence</li>
+          <li>History of corruption or ethical violations</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">🤝</div>
+        <h4>Consider Their Character</h4>
+        <p>Leadership qualities matter. Look for honesty, accountability, and respect for democratic institutions and the rule of law.</p>
+        <ul>
+          <li>Do they accept responsibility for mistakes?</li>
+          <li>Do they respect the opposition?</li>
+          <li>Do they uphold constitutional norms?</li>
+        </ul>
+      </div>
+      <div class="framework-card">
+        <div class="fw-icon">🧠</div>
+        <h4>Think Independently</h4>
+        <p>Your vote is private and personal. Don't let peer pressure or social media dictate your choice. Make an informed, independent decision.</p>
+        <ul>
+          <li>Verify before you share</li>
+          <li>Be skeptical of viral claims</li>
+          <li>Your values are your own</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RULES & REGULATIONS ── -->
+  <section id="rules" class="section section-dark">
+    <div class="section-tag">06 — Rules & Regulations</div>
+    <h2 class="section-title">Voting Rules You Must Know</h2>
+    <div class="rules-grid">
+      <div class="rule-block">
+        <h4>🔒 Your Rights at the Polls</h4>
+        <ul>
+          <li>You have the right to vote free from intimidation</li>
+          <li>You can request help filling out your ballot</li>
+          <li>If in line when polls close, you may still vote</li>
+          <li>You can vote a provisional ballot if your registration is questioned</li>
+          <li>You have the right to a translated ballot in many areas</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>🚫 What's NOT Allowed</h4>
+        <ul>
+          <li>Voting more than once in the same election</li>
+          <li>Voting as someone else (voter impersonation)</li>
+          <li>Campaigning within 100 feet of polling places</li>
+          <li>Taking photos of your marked ballot (in some states)</li>
+          <li>Bribing or threatening voters</li>
+          <li>Voting if you are not a US citizen</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>📅 Key Deadlines (Vary by State)</h4>
+        <ul>
+          <li>Voter registration deadline: 15–30 days before election (some states: same day)</li>
+          <li>Mail-in ballot request deadline: 1–7 days before election</li>
+          <li>Mail-in ballot return: Must arrive by Election Day (some states allow postmarked by Election Day)</li>
+          <li>Early voting window: 4–45 days before Election Day</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>🆔 ID Requirements</h4>
+        <ul>
+          <li><strong>Strict Photo ID states:</strong> Must show valid photo ID</li>
+          <li><strong>Non-strict states:</strong> Photo ID requested but alternatives exist</li>
+          <li><strong>No ID states:</strong> Signature or name lookup is sufficient</li>
+          <li>Always check your state's requirements at vote.gov</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>⚖️ Felony Conviction Rules</h4>
+        <ul>
+          <li><strong>Most states:</strong> Rights restored after sentence is completed</li>
+          <li><strong>Some states:</strong> Rights restored after parole/probation</li>
+          <li><strong>Maine & Vermont:</strong> Never lose voting rights (even while incarcerated)</li>
+          <li><strong>Iowa & Kentucky:</strong> Permanent disenfranchisement (unless individually restored)</li>
+        </ul>
+      </div>
+      <div class="rule-block">
+        <h4>📣 Reporting Problems</h4>
+        <ul>
+          <li>Call the Election Protection Hotline: <strong>1-866-OUR-VOTE</strong></li>
+          <li>Contact your local election board</li>
+          <li>Report intimidation to the Department of Justice</li>
+          <li>Document issues with photos/notes if safe to do so</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AI ASSISTANT ── -->
+  <section id="assistant" class="section section-assistant">
+    <div class="section-tag">07 — Ask AI</div>
+    <h2 class="section-title">Ask DemocraSense AI</h2>
+    <p class="section-sub">Have a question about voting, elections, or the democratic process? Ask our AI assistant powered by Claude.</p>
+    <div class="chat-container">
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-msg ai-msg">
+          <div class="msg-avatar">🗳</div>
+          <div class="msg-bubble">
+            Hello! I'm DemocraSense AI. I'm here to help you understand elections, voting processes, rules, and how democracy works. What would you like to know?
+            <div class="quick-questions">
+              <button onclick="askQuestion('How do I register to vote?')">How do I register?</button>
+              <button onclick="askQuestion('What is the Electoral College?')">Electoral College?</button>
+              <button onclick="askQuestion('How do I evaluate a candidate?')">Evaluate candidates?</button>
+              <button onclick="askQuestion('What happens if I miss the registration deadline?')">Missed deadline?</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Ask anything about voting or elections..." onkeydown="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()" id="send-btn">
+          <span id="send-icon">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">🗳 DemocraSense</div>
+        <p>Empowering citizens with knowledge to participate fully in democracy.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <a href="https://vote.gov" target="_blank">vote.gov</a>
+        <a href="https://www.usa.gov/absentee-voting" target="_blank">Absentee Voting</a>
+        <a href="https://www.congress.gov" target="_blank">congress.gov</a>
+        <a href="https://www.politifact.com" target="_blank">PolitiFact</a>
+        <a href="https://www.factcheck.org" target="_blank">FactCheck.org</a>
+      </div>
+      <div class="footer-links">
+        <h5>Resources</h5>
+        <a href="https://www.isidewith.com" target="_blank">ISideWith.com</a>
+        <a href="https://www.866ourvote.org" target="_blank">Election Protection</a>
+        <a href="https://www.justice.gov/voting" target="_blank">DOJ Voting Rights</a>
+        <a href="https://www.ncsl.org/elections-and-campaigns" target="_blank">State Election Laws</a>
+      </div>
+      <div class="footer-disclaimer">
+        <h5>Disclaimer</h5>
+        <p>DemocraSense is a nonpartisan educational resource. We do not endorse any political party, candidate, or ideology. Our goal is to inform all citizens equally.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DemocraSense — Built for Informed Citizens</p>
+      <p>🗽 Democracy works best when everyone participates.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
